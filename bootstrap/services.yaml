@@ -1,0 +1,10 @@
+parameters:
+  mailer.transport: sendMail
+
+services:
+  mailer:
+    class: App\Models\Mailer
+    arguments: ['%mailer.transport%']
+  newsletter:
+    class: App\Models\NewsletterManager
+    arguments: ['@mailer']
